@@ -10,9 +10,9 @@ import scala.Int
 
 class KafkaProducerWrapper() {
 
-  private val producer: KafkaProducer[String, AnyRef] = new KafkaProducer[String, AnyRef](KafkaProducerWrapper.properties)
+  private val producer: KafkaProducer[String, String] = new KafkaProducer[String, String](KafkaProducerWrapper.properties)
 
-  def send(record: ProducerRecord[String, AnyRef]) = producer.send(record, new RecordCallback)
+  def send(record: ProducerRecord[String, String]) = producer.send(record, new RecordCallback)
 
   def stopProducer() = {
     producer.close()
